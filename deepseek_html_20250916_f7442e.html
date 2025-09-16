@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub 意见提交表单</title>
+    <style>
+        :root {
+            --github-black: #24292e;
+            --github-blue: #0366d6;
+            --github-gray: #f6f8fa;
+            --github-border: #e1e4e8;
+            --github-green: #28a745;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #fafbfc;
+            color: var(--github-black);
+            line-height: 1.5;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--github-border);
+        }
+        
+        .github-logo {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .form-container {
+            background-color: white;
+            border: 1px solid var(--github-border);
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--github-border);
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--github-black);
+            background-color: var(--github-gray);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--github-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: var(--github-green);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background-color: #269f42;
+        }
+        
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--github-gray);
+            border: 1px solid var(--github-border);
+            border-radius: 6px;
+        }
+        
+        .instructions h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .instructions code {
+            background-color: rgba(27, 31, 35, 0.05);
+            border-radius: 3px;
+            padding: 2px 4px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 13px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            color: #6a737d;
+            font-size: 14px;
+        }
+        
+        @media (min-width: 768px) {
+            body {
+                padding: 40px 20px;
+            }
+            
+            .form-container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <svg class="github-logo" viewBox="0 0 16 16" version="1.1" width="64" height="64" aria-hidden="true">
+            <path fill="var(--github-black)" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+        <h1>GitHub 意见提交表单</h1>
+        <p>感谢您花时间提供宝贵的意见</p>
+    </header>
+    
+    <div class="form-container">
+        <form id="feedback-form">
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">邮箱</label>
+                <input type="email" id="email" name="email" required placeholder="请输入您的邮箱地址">
+            </div>
+            
+            <div class="form-group">
+                <label for="category">意见分类</label>
+                <select id="category" name="category" required>
+                    <option value="">请选择分类</option>
+                    <option value="bug">错误报告</option>
+                    <option value="feature">功能建议</option>
+                    <option value="ui">界面改进</option>
+                    <option value="documentation">文档问题</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">详细意见</label>
+                <textarea id="message" name="message" required placeholder="请详细描述您的意见或建议..."></textarea>
+            </div>
+            
+            <button type="submit">提交意见</button>
+        </form>
+    </div>
+    
+    <div class="instructions">
+        <h2>如何提交此代码到GitHub</h2>
+        <ol>
+            <li>将上面的代码保存为HTML文件（例如：<code>feedback-form.html</code>）</li>
+            <li>打开GitHub并登录您的账户</li>
+            <li>创建一个新的代码仓库或选择现有仓库</li>
+            <li>点击"Add file" → "Upload files"</li>
+            <li>将HTML文件拖放到上传区域或点击选择文件</li>
+            <li>添加描述本次提交的提交信息（commit message）</li>
+            <li>点击"Commit changes"提交文件</li>
+            <li>如果需要，您还可以启用GitHub Pages让表单在线访问：
+                <ul>
+                    <li>进入仓库的"Settings"页面</li>
+                    <li>找到"GitHub Pages"部分</li>
+                    <li>选择源分支（通常为main或master）</li>
+                    <li>点击保存，等待几分钟后即可通过提供的URL访问</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    
+    <footer>
+        <p>© 2023 GitHub意见提交表单 | 设计用于GitHub项目</p>
+    </footer>
+
+    <script>
+        document.getElementById('feedback-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感谢您提交意见！在实际应用中，这里会将数据发送到服务器。');
+            // 在实际应用中，这里应该添加代码将表单数据发送到服务器
+            // 例如使用fetch API或表单action属性
+            this.reset();
+        });
+    </script>
+</body>
+</html>
